@@ -1,0 +1,15 @@
+/* 
+You want to know how many of the stones you have are also jewels.
+So, you can iterate iver each stone to check if it is a jewel or not. This will take a complexity of O(N*M), where N=Number of jewels and M=number of stones.
+Moreover, we can optimize it by storing all jewels in an array. This will reduce the complexity to O(M).
+*/
+
+class Solution {
+public:
+    int numJewelsInStones(string J, string S) {
+        int A[255]={0},a=0;
+        for(auto c:S) A[c]++;
+        for(auto C:J) a+=A[C];
+        return a;
+    }
+};
