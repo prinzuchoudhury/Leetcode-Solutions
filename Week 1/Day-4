@@ -1,0 +1,17 @@
+/* 
+The complement strategy is to flip the bits of its binary representation.
+Time Complexity- O(number of digits of n)
+Space Complexity- O(1)
+https://leetcode.com/problems/number-complement/
+*/
+
+class Solution {
+public:
+    int findComplement(int n) {
+        uint32_t num=0;
+        for(int i=0;i<floor(log(n)/log(2))+1;i++){
+            num=num+pow(2,i);
+        }
+        return n^num;
+    }
+};
