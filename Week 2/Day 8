@@ -1,0 +1,17 @@
+/* 
+Just iterate through all the points and check if every point has same slope ot not correponding to the first point.
+Time Complexity-O(N)
+Space Complexity-O(1)
+*/
+class Solution {
+public:
+    bool checkStraightLine(vector<vector<int>>& c) {
+        if(c.size()<3) return true;
+        float m=(c[1][1]-c[0][1])*1.00/(c[1][0]-c[0][0]);
+        for(int i=2;i<c.size();i++){
+            float a=(c[i][1]-c[0][1])*1.00/(c[i][0]-c[0][0]);
+            if(a!=m) return false;
+        }
+        return true;
+    }
+};
