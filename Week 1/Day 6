@@ -1,0 +1,10 @@
+/*
+As the majority element occurs more than (size of vector)/2, so just sort it and get the middle element.
+*/
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        return nums[nums.size()/2];
+    }
+};
