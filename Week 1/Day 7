@@ -1,0 +1,30 @@
+/*
+Simply apply BFS to search for cousins. I have used the iterative traversal here.
+*/
+class Solution {
+public:
+    bool isCousins(TreeNode* root, int x, int y) {
+        queue<TreeNode*> A;
+        A.push(root);
+        while(!A.empty()){
+            TreeNode *q=NULL;
+            TreeNode *p=NULL;
+            for(int i=A.size();i>0;i--){
+                TreeNode* temp=A.front();
+                A.pop();
+                if(temp->left!=NULL){ 
+                    A.push(temp->left);
+                     if(temp->left->val==x) q=temp;
+                    if(temp->left->val==y) p=temp;
+                }
+                if(temp->right!=NULL) {
+                    A.push(temp->right);
+                    if(temp->right->val==x) q=temp;
+                    if(temp->right->val==y) p=temp;
+            }
+            if(p!=NULL && q!=NULL && p!=q) return true;
+            }
+        }
+        return false;
+    }
+};
