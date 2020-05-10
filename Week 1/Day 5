@@ -1,0 +1,23 @@
+/*
+Just store the frequencies of each character in a map/vector and then check if any character has a single frequency,then return its index.  
+*/
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        char a;
+        int A[26]={0};
+        for(auto c:s){
+            A[c-'a']++;
+        }
+        for(auto c:s){
+            if(c-'a']==1){
+                a=(char)c;
+                break;
+            }
+        }
+        for(int i=0;i<s.size();i++){
+            if(s[i]==a) return i;
+        }
+        return -1;
+    }
+};
