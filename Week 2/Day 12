@@ -1,0 +1,24 @@
+/*
+Given vector is sorted and we have to to do this in log(n) time complexity. We could simply apply binary search.
+So, first check wheather the number of elements is odd or even. 
+If even, check if middle and middle+1 is same or not, as every element should occur in pair.
+If odd, check if middle and middle-1 is same or not.
+*/
+class Solution {
+public:
+    int singleNonDuplicate(vector<int>& nums) {
+        int l = 0, r = nums.size()-1;
+        while(l < r) {
+            int m = l + (r-l)/2;
+            if(m%2==0) {
+                if(nums[m]==nums[m+1]) l=m+2;
+                else r=m;
+            }
+            else {
+                if(nums[m]==nums[m-1]) l=m+1;
+                else r=m-1;
+            }
+        }
+        return nums[l];
+    }
+};
