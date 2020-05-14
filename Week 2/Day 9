@@ -1,0 +1,16 @@
+/*
+We can't use any built-in library function such as sqrt.
+So,just check until r*r > x where new r will be the half of previous r.
+*/
+class Solution {
+public:
+    bool isPerfectSquare(int x) {
+    long r = x;
+    while (r*r > x)
+        r = (r + x/r) / 2;
+    if(r*r == x)
+      return true;
+    else
+      return false;
+    }
+};
