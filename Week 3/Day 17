@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        int A[26]={0},b=0,B[26]={0};
+        for(auto c:p) A[c-'a']++;
+        int i=0;
+        vector<int> Q;
+        if(p.size()>s.size()) return Q;
+        for(;i<p.size();i++){
+            B[s[i]-'a']++;
+        }
+        for(;i<s.size()+1;i++){
+            bool a=false;
+            for(int j=0;j<26;j++){
+                if(A[j]!=B[j]) a=true;
+            }
+            if(a==false) Q.push_back(i-p.size());
+            if(i==s.size()) break;
+            B[s[i-p.size()]-'a']--;
+            B[s[i]-'a']++;
+        }
+        return Q;
+    }
+};
