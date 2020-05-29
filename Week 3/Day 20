@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int a=0,b=0;
+    int kthSmallest(TreeNode* root, int k) {
+        if(root==NULL) return 0;
+        kthSmallest(root->left,k);
+        a++;
+        if(a==k) b=root->val;
+        kthSmallest(root->right,k);
+        return b;
+    }
+};
